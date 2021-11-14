@@ -583,8 +583,10 @@ body {
   justify-content: space-between;
   align-items: center; */
 }
-.custom-content .center-text-content__custom .btn {
-  width: 100%;
+@media (max-width: 425px) {
+  .custom-content .center-text-content__custom .btn {
+    width: 100%;
+  }
 }
 .custom-content .custom-content__img {
   -webkit-box-flex: 0;
