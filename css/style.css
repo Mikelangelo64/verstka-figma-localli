@@ -1246,6 +1246,9 @@ body._lock {
 }
 
 .footer-navigation {
+  /* > *:nth-child(1){
+      border: 5px solid red;
+  } */
   -webkit-box-flex: 0;
       -ms-flex: 0 1 36.29%;
           flex: 0 1 36.29%;
@@ -1255,6 +1258,13 @@ body._lock {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /* @media(max-width:425px){
+      flex: 0 1 100%;
+      width: 100%;
+      margin-bottom: 5%;
+      padding-bottom: 5%;
+      border-bottom: 1px solid #E5E5E5;
+  } */
 }
 @media (max-width: 768px) {
   .footer-navigation {
@@ -1263,18 +1273,24 @@ body._lock {
             flex: 0 1 51.29%;
   }
 }
-@media (max-width: 425px) {
-  .footer-navigation {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 100%;
-            flex: 0 1 100%;
-    width: 100%;
-    margin-bottom: 5%;
-    padding-bottom: 5%;
-    border-bottom: 1px solid #E5E5E5;
-  }
-}
 .footer-navigation .navigation-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.footer-navigation .navigation-column .navigation-column__title {
+  color: #A6A6A6;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 5%;
+  cursor: default;
+  pointer-events: none;
+}
+.footer-navigation .navigation-column .navigation-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1287,21 +1303,86 @@ body._lock {
   color: #000000;
   line-height: 22px;
   margin-bottom: 5%;
+  /* @media(max-width:375px){
+      line-height: 18px;
+      font-size: 14px;
+  } */
 }
 .footer-navigation .navigation-column .navigation-row li a {
   color: inherit;
 }
-.footer-navigation .navigation-column .navigation-row li:first-child {
-  color: #A6A6A6;
-  font-size: 16px;
-  line-height: 19px;
-}
 .footer-navigation .navigation-column .navigation-row li:last-child {
   margin-bottom: 0;
 }
-@media (max-width: 375px) {
+@media (max-width: 425px) {
+  .footer-navigation {
+    width: 100%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    border-bottom: 1px solid #E5E5E5;
+    position: relative;
+    /* flex-direction: column; */
+  }
+  .footer-navigation .navigation-column .navigation-column__title {
+    cursor: pointer;
+    pointer-events: all;
+    /* position: relative; */
+    font-size: 25px;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  .footer-navigation .navigation-column .navigation-row {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin: auto;
+  }
   .footer-navigation .navigation-column .navigation-row li {
-    line-height: 18px;
-    font-size: 14px;
+    /* min-width: 100px; */
+    font-size: 20px;
+  }
+  .footer-navigation .navigation-column._active-foot .navigation-column__title {
+    color: #5374df;
+    text-decoration: underline;
+    padding-bottom: 80px;
+  }
+  .footer-navigation .navigation-column._active-foot .navigation-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+    left: 0;
+    top: 30%;
+    -webkit-transform: translate(0, 50%);
+            transform: translate(0, 50%);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    text-align: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .footer-navigation .navigation-column._active-foot:last-child .navigation-row {
+    top: 15%;
+  }
+}
+@media (max-width: 320px) {
+  .footer-navigation .navigation-column .navigation-column__title {
+    font-size: 20px;
+  }
+  .footer-navigation .navigation-column .navigation-row li {
+    font-size: 15px;
   }
 }

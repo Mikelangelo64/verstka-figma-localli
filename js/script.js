@@ -73,3 +73,22 @@ if(menuLinks.length > 0){
         }
     }
 }
+
+//футер активные вкладки
+const footerColumns = document.querySelectorAll('.navigation-column')
+
+if(footerColumns.length > 0){
+    footerColumns.forEach( (footerColumn, index) =>{
+        footerColumn.addEventListener('click', function(e){
+            footerColumn.classList.toggle('_active-foot')
+            footerColumns.forEach((columnTest, indexTest) =>{
+                if(index !=indexTest){
+                    columnTest.classList.remove('_active-foot')
+                }
+            })
+            e.preventDefault()
+        })
+    })
+
+    
+}
