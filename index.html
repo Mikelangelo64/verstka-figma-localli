@@ -16,16 +16,20 @@
                 <div class="logo">
                     <img src="img/logo+label/logo.png" alt="logo">
                 </div>
+                
                 <nav class="navigation">
+                    <div class="burger">
+                        <span></span>
+                    </div>
                     <ul class="navigation__menu">
                         <li>
-                            <a href="#">
-                                <p>How it works</p>
+                            <a data-goto=".how-it-works" class="menu__link" href="#">
+                                How it works
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <p>Pricing</p>
+                            <a data-goto=".delivery" class="menu__link" href="#">
+                                Pricing
                             </a>
                         </li>
                         <li>
@@ -33,9 +37,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="burger">
-                    <img src="img/logo+label/burger.png" alt="burger">
-                </div>
+                
             </div>
         </div>
     </header>
@@ -563,12 +565,12 @@
                                     Links
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a data-goto=".how-it-works" class="menu__link" href="#">
                                         How it works
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a data-goto=".delivery" class="menu__link" href="#">
                                         Pricing
                                     </a>
                                 </li>
@@ -585,7 +587,7 @@
                                     Resources
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a data-goto=".faqs" class="menu__link" href="#">
                                         FAQ’s
                                     </a>
                                 </li>
@@ -633,5 +635,6 @@
             </div>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
