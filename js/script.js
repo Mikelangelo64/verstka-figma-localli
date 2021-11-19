@@ -75,7 +75,7 @@ if(menuLinks.length > 0){
 }
 
 //футер активные вкладки
-const footerColumns = document.querySelectorAll('.navigation-column')
+/* const footerColumns = document.querySelectorAll('.navigation-column')
 
 if(footerColumns.length > 0){
     footerColumns.forEach( (footerColumn, index) =>{
@@ -89,6 +89,30 @@ if(footerColumns.length > 0){
             e.preventDefault()
         })
     })
+ 
+} */
 
-    
-}
+//footer on JQuery
+$(document).ready(function(){
+    $('.navigation-column__title').click(function(event){
+        
+        $('.navigation-column__title').not($(this)).removeClass('_active-foot')
+        $('.navigation-row').not($(this).next()).slideUp(300)
+
+        $(this).toggleClass('_active-foot').next().slideToggle(300)
+
+        event.preventDefault()
+    })
+})
+
+//faqs spoiler on JQuery
+$(document).ready(function(){
+    $('.faqs-element__question').click(function(event){
+        if($('.faqs-list').hasClass('one-open')){
+            $('.faqs-element__question').not($(this)).removeClass('active__faqs')
+            $('.faqs-element__answer').not($(this).next()).slideUp(300)
+
+        }
+        $(this).toggleClass('active__faqs').next().slideToggle(300)
+    })
+})
